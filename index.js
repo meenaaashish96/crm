@@ -8,10 +8,13 @@ const PORT = 4000;
 
 //mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongoose://localhost/CRMdb',{
+mongoose.connect('mongodb://localhost/CRMdb',{
     useNewUrlParser: true
 })
 
+//Body parser setup 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 
 //for rountes
