@@ -12,3 +12,9 @@ export const addNewContact = (req, res) => {
 
 }
 
+export const getContact = (req, res) => {
+  Contact.find()
+  .then(contacts => res.json(contacts))
+  .catch(err => res.status(400).send(err));
+}
+
