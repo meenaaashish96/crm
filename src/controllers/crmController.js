@@ -25,3 +25,17 @@ export const getContactWithID = (req, res) => {
   .catch(err => res.send(err));
 }
 
+export const updateContact = (req, res) => {
+  Contact.findByIdAndUpdate(req.params.contactId, req.body, {new:  true, runValidators: true})
+  .then(newContact => res.json(newContact))
+  .catch(err => res.send(err));
+}
+
+export const deleteContacWithID = (req, res) => {
+  Contact.findOneAndDelete(req.params.contactId)
+  .then(contact => res.json(contact))
+  .catch(err => res.send(err));
+}
+
+
+
